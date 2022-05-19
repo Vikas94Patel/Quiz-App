@@ -28,7 +28,9 @@ function Quiz() {
   };
 
   const handlePrevClick = () => {
-    setCurrentQuestion(currentQuestion - 1);
+    if (currentQuestion === 1) {
+      setCurrentQuestion(currentQuestion - 1);
+    }
   };
 
   const handleNextClick = () => {
