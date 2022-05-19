@@ -39,7 +39,7 @@ const QuizData = [
     id: 7,
     question: `What is the capital of Karnataka?`,
     options: [`Jaipur`, `Punjab`, `Bangluru`, `Chennai`],
-    answer: `Bangaluru`,
+    answer: `Bengaluru`,
   },
   {
     id: 8,
