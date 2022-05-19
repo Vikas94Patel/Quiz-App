@@ -67,6 +67,7 @@ function Quiz() {
           <div className="answer-section">
             {QuizData[currentQuestion].options.map((option) => (
               <button
+                key={option}
                 onClick={() =>
                   handleOptionClick(QuizData[currentQuestion].id, option)
                 }
