@@ -1,14 +1,10 @@
 import React from "react";
 import Quiz from "./Quiz";
 
-import styles from "./styles.css";
+import "./styles.css";
 
 function App() {
-  return (
-    <div className={styles.App}>
-      <Quiz />
-    </div>
-  );
+  return <Quiz />;
 }
 
 export default App;

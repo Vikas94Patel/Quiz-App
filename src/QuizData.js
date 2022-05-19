@@ -9,7 +9,7 @@ const QuizData = [
     id: 2,
     question: `What is the capital of Jammu And Kashmir?`,
     options: [`New Delhi`, `Punjab`, `Mumbai`, `Sri Nagar`],
-    answer: `Shri Nagar`,
+    answer: `Sri Nagar`,
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ const QuizData = [
   {
     id: 7,
     question: `What is the capital of Karnataka?`,
-    options: [`Jaipur`, `Punjab`, `Bangluru`, `Chennai`],
+    options: [`Jaipur`, `Punjab`, `Bengaluru`, `Chennai`],
     answer: `Bengaluru`,
   },
   {

@@ -24,11 +24,14 @@ function Quiz() {
       attempted.includes(id)
     ) {
       setScore(score - 1);
+      const newAttempted = attempted.filter((item) => item !== id);
+      setAttempt(newAttempted);
+      console.log(attempted);
     }
   };
 
   const handlePrevClick = () => {
-    if (currentQuestion === 1) {
+    if (currentQuestion >= 1) {
       setCurrentQuestion(currentQuestion - 1);
     }
   };
@@ -64,7 +67,6 @@ function Quiz() {
           <div className="answer-section">
             {QuizData[currentQuestion].options.map((option) => (
               <button
-                type="button"
                 onClick={() =>
                   handleOptionClick(QuizData[currentQuestion].id, option)
                 }
