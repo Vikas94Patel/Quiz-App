@@ -1,12 +1,45 @@
-import React, { useState } from "react";
-import QuizData from "./QuizData";
+import React, { useEffect, useState } from "react";
 
 function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [attempted, setAttempt] = useState([]);
   const [showScore, setShowScore] = useState(false);
-
   const [score, setScore] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+  const [QuizData, setQuizData] = useState([]);
+
+  useEffect(() => {
+    const fetchQ = async () => {
+      const response = await fetch(
+        "https://quiz-app-12b1e-default-rtdb.firebaseio.com/QuizData.json"
+      );
+
+      if (!response.ok) {
+        throw new Error("Something went wrong!");
+      }
+
+      const responseData = await response.json();
+
+      const loadedQ = [];
+
+      for (const key in responseData) {
+        loadedQ.push({
+          id: responseData[key].id,
+          question: responseData[key].question,
+          options: responseData[key].options,
+          answer: responseData[key].answer,
+        });
+      }
+
+      setQuizData(loadedQ);
+      setIsLoading(false);
+    };
+
+    fetchQ().catch((error) => {
+      setIsLoading(false);
+      console.log(error.message);
+    });
+  }, []);
 
   const handleOptionClick = (id, answer) => {
     if (
@@ -47,6 +80,14 @@ function Quiz() {
       setShowScore(true);
     }
   };
+
+  if (isLoading) {
+    return (
+      <section>
+        <p>Loading...</p>
+      </section>
+    );
+  }
 
   return (
     <div>
